@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sist.mapper.SeoulMapper">
+	<resultMap type="com.sist.vo.SeoulVO" id="seoulMap">
+		<result property="no" column="no"/>
+		<result property="title" column="title"/>
+		<result property="address" column="address"/>
+		<result property="poster" column="poster"/>
+		<result property="hit" column="hit"/>
+		<result property="msg" column="msg"/>
+	</resultMap>
+	<!-- xml에 선언한 id값과 Mapper에 프로시저를 구현한 메소드명이 동일하면 오류 발생 -->
+	<!-- <select id="seoulLocationTotalPage" resultType="int">
+		SELECT CEIL(COUNT(*)/12)
+		FROM seoul_location
+	</select> -->
+</mapper>

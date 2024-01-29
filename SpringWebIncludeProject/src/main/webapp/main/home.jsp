@@ -27,13 +27,13 @@
 		<div class="row">
 			<div class="text-center">
 				<ul class="pagination">
-					<c:if test="${startPage>1 }">
+					<c:if test="${startPage gt 1 }">
 						<li><a href="../main/main.do?page=${startPage-1 }">&lt;</a></li>
 					</c:if>
 					<c:forEach var="i" begin="${startPage }" end="${endPage }">
 				  		<li ${curpage eq i ? "class=active" : "" }><a href="../main/main.do?page=${i }">${i }</a></li>
 				  	</c:forEach>
-				  	<c:if test="${endPage<totalpage }">
+				  	<c:if test="${endPage lt totalpage }">
 				  		<li><a href="../main/main.do?page=${endPage+1 }">&gt;</a></li>
 				  	</c:if>
 				</ul> 
@@ -43,6 +43,13 @@
 		<div class="row">
 			<h3>최근 방문 맛집</h3>
 			<hr>
+			<c:if test="${cookiecount gt 0 }">
+				<c:forEach var="cvo" items="${cList }" varStatus="s">
+					<c:if test="${s.index lt 9 }">
+						<img src="https://www.menupan.com${cvo.poster }" style="width: 100px;height: 100px;">
+					</c:if>
+				</c:forEach>
+			</c:if>
 		</div>
 	</div>
 </body>

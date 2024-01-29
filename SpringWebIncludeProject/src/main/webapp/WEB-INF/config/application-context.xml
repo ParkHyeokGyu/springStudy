@@ -15,4 +15,12 @@
 		p:prefix="/"
 		p:suffix=".jsp"
 	/>
+	<mvc:annotation-driven/>
+	<mvc:interceptors>
+		<mvc:interceptor>
+			<mvc:mapping path="/**/*"/> <!-- 모든 URL에서 호출 -->
+			<!-- <mvc:exclude-mapping path=""/> --> <!-- 제외할 URL -->
+			<bean id="foodInter" class="com.sist.inter.FoodInterceptor"/>
+		</mvc:interceptor>
+	</mvc:interceptors>
 </beans>

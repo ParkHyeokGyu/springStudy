@@ -23,8 +23,15 @@
 		p:username="#{db['username']}"
 		p:password="#{db['password']}"
 	/>
+	<!-- Transaction 등록 -> @Transactional이 동작할 수 있도록 한다 -->
+	<tx:annotation-driven/>
+	<bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager"
+		p:dataSource-ref="ds"
+	/>
+	<!-- Config.xml 등록 -->
 	<bean id="ssf" class="org.mybatis.spring.SqlSessionFactoryBean"
 		p:dataSource-ref="ds"
+		p:configLocation="/WEB-INF/config/Config.xml"
 	/>
 	<mybatis-spring:scan base-package="com.sist.mapper"
 		factory-ref="ssf"
